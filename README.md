@@ -1,10 +1,10 @@
 spatialsuite-matomo
 =============================
 
-Matomo modul
+Matomo modul til tracking af SpatialSuite i [matomo](https://matomo.org/)
 
-Septima v/ Klavs P. Christensen. klavsATseptima.dk  
-www.septima.dk
+[Septima](http://www.septima.dk) v/ Klavs Pihlkjær. klavsATseptima.dk  
+
 
 Før installation
 
@@ -14,8 +14,8 @@ I Matomo oprettes og konfigureres en konto. Informationer fra opsætningen af de
 INSTALLATION
 --------------------
 
-1:    Download modulet https://github.com/Septima/spatialsuite-matomo/archive/0.1.0.zip  
-1.a:  Kopiér modulet "matomo" til [cbinfo.config.dir]/modules/thirdparty/septima/matomo.  
+1:    Download og udpak https://github.com/Septima/spatialsuite-matomo/archive/0.2.0.zip  
+1.a:  Kopiér og omdøb folderen "spatialsuite-matomo-0.2.0" til [cbinfo.config.dir]/modules/thirdparty/septima/matomo.  
 1.b:  Skriv følgende i modules.xml:
 ```xml
 <module name="matomo" dir="thirdparty/septima/matomo"/>.
