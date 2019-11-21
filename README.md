@@ -1,21 +1,27 @@
 spatialsuite-matomo
 =============================
 
-Matomo modul til tracking af SpatialSuite i [matomo](https://matomo.org/)
+Modul til tracking af SpatialSuite i [matomo](https://matomo.org/)  
 
-[Septima](http://www.septima.dk) v/ Klavs Pihlkjær. klavsATseptima.dk  
+[Septima](http://www.septima.dk) v/ Klavs Pihlkjær. klavsATseptima.dk    
 
+Der registreres et enkelt pageview per session, herudover registreres
+* tryk på knapper og menuer,  
+* kort-opløsning, samt  
+* tænd/sluk af temaer  
 
-Før installation
+som handlinger (events) i matomo
+  
+  
+__Før installation__
 
-I Matomo oprettes og konfigureres en konto. Informationer fra opsætningen af denne konto skal bruges i konfigurationen af modulet. Se nedenfor
+I matomo oprettes og konfigureres en konto. Informationer fra opsætningen af denne konto skal bruges i konfigurationen af modulet. Se nedenfor
 
---------------------
 INSTALLATION
 --------------------
 
-1:    Download og udpak https://github.com/Septima/spatialsuite-matomo/archive/0.2.0.zip  
-1.a:  Kopiér og omdøb folderen "spatialsuite-matomo-0.2.0" til [cbinfo.config.dir]/modules/thirdparty/septima/matomo.  
+1:    Download og udpak https://github.com/Septima/spatialsuite-matomo/archive/0.3.0.zip  
+1.a:  Kopiér og omdøb folderen "spatialsuite-matomo-0.3.0" til [cbinfo.config.dir]/modules/thirdparty/septima/matomo.  
 1.b:  Skriv følgende i modules.xml:
 ```xml
 <module name="matomo" dir="thirdparty/septima/matomo"/>.
@@ -33,13 +39,13 @@ INSTALLATION
 <!-- =================================== -->
 <!-- Matomo                              -->
 <!-- =================================== -->
-  <!siteurl: Det navn som sitet har i matomo. Eksempelvis webkort.nyby.dk -->
+  <!--siteurl: Det navn som sitet har i matomo. Eksempelvis webkort.nyby.dk -->
   <param name="module.matomo.siteurl">xxxxx.xxx.xxx/</param>
     
-  <!siteid: Det id som sitet har i matomo. Eksempelvis 1 (Kan ses som 'idSite' når man er inde i matomo)-->
+  <!--siteid: Det id som sitet har i matomo. Eksempelvis 1 (Kan ses som 'idSite' når man er inde i matomo)-->
   <param name="module.matomo.siteid">XX</param>
 ```
-3.b:  Skal oplysninger om brugeren gemmes?:
+3.b:  Skal oplysninger om brugeren gemmes?
 ```xml
 <param name="module.matomo.storeprincipal">true</param>
 ```
