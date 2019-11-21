@@ -39,7 +39,7 @@ INSTALLATION
 <!-- =================================== -->
 <!-- Matomo                              -->
 <!-- =================================== -->
-  <!--siteurl: Det navn som sitet har i matomo. Eksempelvis webkort.nyby.dk -->
+  <!--siteurl: Din piwik-installation. Eksempelvis piwik.nyby.dk -->
   <param name="module.matomo.siteurl">xxxxx.xxx.xxx/</param>
     
   <!--siteid: Det id som sitet har i matomo. Eksempelvis 1 (Kan ses som 'idSite' når man er inde i matomo)-->
