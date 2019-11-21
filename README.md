@@ -34,7 +34,7 @@ INSTALLATION
 
 3  :  Inkludér cbinfo-parametre
 
-3.a:  Matomo parametre:
+3.a:  Obligatoriske parametre:
 ```xml
 <!-- =================================== -->
 <!-- Matomo                              -->
@@ -45,12 +45,14 @@ INSTALLATION
   <!--siteid: Det id som sitet har i matomo. Eksempelvis 1 (Kan ses som 'idSite' når man er inde i matomo)-->
   <param name="module.matomo.siteid">XX</param>
 ```
-3.b:  Skal oplysninger om brugeren gemmes?
+3.b:  Skal oplysninger om brugeren gemmes? (Valgfri parameter)  
+Brugerens id gemmes som attribut på pageviewet og efterfølgende events i matomo  
 ```xml
 <param name="module.matomo.storeprincipal">true</param>
 ```
 
-3.b:  Undlad at bruge cookies: (Brugeren trackes ikke, dvs der vil blive registreret ny bruger hvergang sitet reloades. Alle events er korrekte, men de vil ikke kunne henføres til en brugers opførsel på sitet)  
+3.b:  Undlad at bruge cookies (Valgfri parameter)  
+Brugeren trackes ikke, dvs der vil blive registreret ny bruger hvergang sitet reloades. Alle handlinger (events) registreres korrekt, men de vil ikke kunne henføres til en brugers opførsel på sitet  
 ```xml
 <param name="module.matomo.no-cookie">true</param>
 ```
