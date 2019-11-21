@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool type="plugin">
+
+    <src><![CDATA[
+    //doLoad
+        //https://developer.matomo.org/guides/tracking-javascript-guide
+
+        if ('[module.matomo.storeprincipal]' === 'true' && typeof getPrincipal !== 'undefined') {
+            var p = getPrincipal();
+            if (p && p.name && p.id) {
+                matomo_plugin_setUser(p.isanonymous ? 'Anonymous' : p.name + ' (' + p.id + ')')
+            }
+        }
+
+        [if: isDefinedAndTrue("module.matomo.no-cookie") ]
+          _paq.push(["disableCookies"]);
+        [endif]
+
+        _paq.push(['trackPageView']);
+        
+        matomo_plugin_trackEvent('Profile', 'Load', cbKort.getProfile())
+        
+        matomo_plugin_addListener ('BUTTON_CLICKED', function (event, button) {
+        	if (button.type === 'menu'){
+                matomo_plugin_trackEvent('Menuitem', 'Clicked', button.name)
+        	} else {
+                matomo_plugin_trackEvent('Button', 'Clicked', button.name)
+        	}
+        });
+	    
+        matomo_plugin_addListener ('MAP_CHANGED', function (event, map) {
+            if (typeof spm !== 'undefined' && typeof spm.getMapControl !== 'undefined'){
+                matomo_plugin_trackEvent('Map', 'Resolution', '' + spm.getMapControl().getMapState().mapresolution)
+            } else {
+                matomo_plugin_trackEvent('Map', 'Resolution', '' + map.resolution)
+            }
+        
+        });
+        
+        matomo_plugin_addListener ('THEME_CHANGED',function (event, theme) {
+            matomo_plugin_trackEvent('Theme', (theme.visible ? 'Show' : 'Hide'), theme.name)
+        });
+        
+        matomo_plugin_addListener ('THEME_VISIBILITY_CHANGED',function (event, theme) {
+            matomo_plugin_trackEvent('Theme', (theme.isVisible() ? 'Show' : 'Hide'), theme.name)
+        });
+        
+    ]]></src>
+    <jssrc><![CDATA[
+    //På siden
+        function matomo_plugin_addListener( event, listener ){
+            if (typeof spm !== 'undefined' && typeof spm.getEvents !== 'undefined'){
+                spm.getEvents().addListener( event, listener );
+            } else {
+                cbKort.events.addListener ( event, listener );       
+            }
+        }
+        
+        function matomo_plugin_trackEvent(category, action, name, value) {
+            _paq.push(['trackEvent', category, action, name, value]);
+        }
+        
+        function matomo_plugin_setUser(userId) {
+            _paq.push(['setUserId', userId]);
+        }
+
+		//<!-- Matomo -->
+		  var _paq = window._paq || [];
+		  _paq.push(['enableLinkTracking']);
+		  (function() {
+		    var u="//[module.matomo.siteurl]";
+		    _paq.push(['setTrackerUrl', u+'/matomo.php']);
+		    _paq.push(['setSiteId', '[module.matomo.siteid]']);
+		    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		    g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.matomo.cloud/[module.matomo.siteurl]/matomo.js'; s.parentNode.insertBefore(g,s);
+		  })();
+		//<!-- End Matomo Code -->
+    ]]></jssrc>
+</tool>    
