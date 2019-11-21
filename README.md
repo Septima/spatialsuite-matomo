@@ -20,8 +20,8 @@ I matomo oprettes og konfigureres en konto. Informationer fra opsætningen af de
 INSTALLATION
 --------------------
 
-1:    Download og udpak https://github.com/Septima/spatialsuite-matomo/archive/0.3.0.zip  
-1.a:  Kopiér og omdøb folderen "spatialsuite-matomo-0.3.0" til [cbinfo.config.dir]/modules/thirdparty/septima/matomo.  
+1:    Download og udpak https://github.com/Septima/spatialsuite-matomo/archive/0.5.0.zip  
+1.a:  Kopiér og omdøb folderen "spatialsuite-matomo-0.5.0" til [cbinfo.config.dir]/modules/thirdparty/septima/matomo.  
 1.b:  Skriv følgende i modules.xml:
 ```xml
 <module name="matomo" dir="thirdparty/septima/matomo"/>.
